@@ -68,7 +68,7 @@ ResultSet rs=stat.executeQuery("use cajasadb;");
 rs=stat.executeQuery("select * from libreria");
 
 
-consulta+="<table border=2>";
+consulta+="<table border=1>";
 consulta+="<th><h2>Titulo </h2></th>";
 consulta+="<th><h2>Precio </h2></th>";
 consulta+="<th><h2>Autor </h2></th>";

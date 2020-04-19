@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="css/AcStyle.css">
 </head>
 <header>
-    <img class="logo" src="../cajasa/img/Logo.png" alt="">
+    <img class="logo" src="./img/Logo.png" alt="">
 </header>
 <body>
     <section class="login-box">
-        <img class="avatar" src="../cajasa/img/Conocimiento.png" alt="">
+        <!-- <img class="avatar" src="./img/Conocimiento.png" alt=""> -->
         <form class="tabla" action="Visualizar.jsp" method="POST">
             <%
            operaciones.Visualizar  c= new operaciones.Visualizar();

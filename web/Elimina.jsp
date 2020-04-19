@@ -13,14 +13,15 @@
     <title>Visulializar documentos</title>
     <link rel="stylesheet" href="css/AcStyle.css">
 </head>
-<header>
-    <img class="logo" src="../cajasa/img/Logo.png" alt="">
-</header>
+
 <body>
+    <header style="display: inline-flex">
+        <img class="logo" src="./img/Logo.png" alt="">
+    </header>
     <section class="login-box">
-        <img class="avatar" src="../cajasa/img/Conocimiento.png" alt="">
+        <h1>Eliminación de un documento</h1>
+        <!-- <img class="avatar" src="./img/Conocimiento.png" alt=""> -->
         <form class="tabla" action="Elimina.jsp" method="POST">
-            <h1>Eliminación de un documento</h1>
                 <%
                operaciones.Eliminacion el= new operaciones.Eliminacion();
                if(el.estaControlador())

@@ -81,7 +81,7 @@ consulta+="<th><h2>Editorial </h2> </th>";
 consulta+="<th><h2>Número de páginas </h2> </th>";
 consulta+="<th><h2>Tipo </h2> </th>";
 consulta+="<th><h2>Imagen </h2> </th>";
-consulta+="<th><h2>¿Eliminar? </h2> </th>";
+consulta+="<th>¿Eliminar?</th>";
 
 while (rs.next())
 {

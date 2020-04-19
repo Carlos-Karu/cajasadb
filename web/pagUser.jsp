@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="css/PuStyle.css">
 </head>
 <header>
-    <img class="logo" src="../cajasa/img/Logo.png" alt="">
+    <img class="logo" src="./img/Logo.png" alt="">
 </header>
 <body>
     <section class="login-box">
-        <img class="avatar" src="../cajasa/img/Usuario.png" alt="">
+        <img class="avatar" src="./img/Usuario.png" alt="">
         <form action="pagUSer.jsp" method="POST">
             <h1>¿Qué desea hacer?</h1><br>
             <a href="Visualizar.jsp"><h2>Visualizar documentos</h2></a>
