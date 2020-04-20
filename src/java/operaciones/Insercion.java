@@ -25,10 +25,10 @@ public class Insercion {
     {
       // create a mysql database connection
       String myDriver = "com.mysql.jdbc.Driver";
-      String myUrl = "jdbc:mysql://localhost:3306/cajasadb";
+      String myUrl = "jdbc:mysql://node53445-arquitectura-equipo1.jl.serv.net.mx:3306/cajasadb";
       Class.forName(myDriver);
       System.out.println("num1");
-      Connection conn = DriverManager.getConnection(myUrl, "root", "");
+      Connection conn = DriverManager.getConnection(myUrl, "root", "jx5jzKVCMi");
       System.out.println("num2");
       Statement st = conn.createStatement();
       System.out.println("num3");

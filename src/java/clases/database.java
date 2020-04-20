@@ -16,8 +16,8 @@ public class database {
     String pass;
     String driver;
     
- public database(){
-        this.url = "jdbc:mysql://node53442-equipo1arq.jl.serv.net.mx:3306/cajasadb";
+    public database(){
+        this.url = "jdbc:mysql://node53445-arquitectura-equipo1.jl.serv.net.mx:3306/cajasadb";
         this.user = "root";
         this.pass = "jx5jzKVCMi";
         this.driver = "com.mysql.jdbc.Driver";
