@@ -21,6 +21,7 @@ public class database {
         this.user = "root";
         this.pass = "jx5jzKVCMi";
         this.driver = "com.mysql.jdbc.Driver";
+        
 }
 
     public String getUrl() {
