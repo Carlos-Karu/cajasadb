@@ -52,7 +52,7 @@ public String ejecutaConsulta()
  try
 {
 
-conn=DriverManager.getConnection("jdbc:mysql://node53445-arquitectura-equipo1.jl.serv.net.mx:3306/cajasadb","root","jx5jzKVCMi");
+conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","");
 
 } catch (SQLException se)
 {
@@ -88,10 +88,10 @@ while (rs.next())
     
 consulta+="<tr>";
 
-String k1=rs.getString("titulo");
+String k1=rs.getString("id");
 consulta+="<th>" +k1+"</th>";
-String k2=rs.getString("precio");
-consulta+="<th>" +k2+"</th>";
+consulta+="<th>" +rs.getString("titulo")+"</th>";
+consulta+="<th>" +rs.getString("precio")+"</th>";
 consulta+="<th>" +rs.getString("autor")+"</th>";
 consulta+="<th>" +rs.getString("genero")+"</th>";
 consulta+="<th>" +rs.getString("formato")+"</th>";
@@ -100,7 +100,7 @@ consulta+="<th>" +rs.getString("editorial")+"</th>";
 consulta+="<th>" +rs.getString("paginas")+"</th>";
 consulta+="<th>" +rs.getString("tipo")+"</th>";
 consulta+="<th>" +rs.getString("imagen")+"</th>";
-consulta+="<th><a href=Eliminacion.jsp?k1="+k1+"&k2="+ k2+">Eliminar</a> "+"</th>";
+consulta+="<th><a href=Eliminacion.jsp?k1="+k1+">Eliminar</a> "+"</th>";
 consulta+="</tr>";
 
 }
@@ -120,7 +120,7 @@ consulta+="LError: "+se.getErrorCode();
          }
 }
 
-  public String ejecutaEliminacion(String k1,String k2)
+  public String ejecutaEliminacion(String k1)
   {
    String res=""; 
     try
@@ -132,7 +132,7 @@ consulta+="LError: "+se.getErrorCode();
       Connection conn = DriverManager.getConnection(myUrl, "root", "");
       
       
-      String query = "delete from libreria where titulo='"+k1+"' AND precio='"+k2+"'";
+      String query = "delete from libreria where id='"+k1+"'";
       Statement preparedStmt = conn.prepareStatement(query);
       //preparedStmt.setInt(1, 3);
 

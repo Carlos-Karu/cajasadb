@@ -23,11 +23,10 @@
             <h1>Resultado de la eliminacion con MVC</h1>
             <%
             String k1= request.getParameter("k1");
-            String k2= request.getParameter("k2");
          
             operaciones.Eliminacion el= new operaciones.Eliminacion();
          
-            out.println(el.ejecutaEliminacion(k1, k2));
+            out.println(el.ejecutaEliminacion(k1));
             
             %>
         

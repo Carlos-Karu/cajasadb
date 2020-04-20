@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Eliminacion
-    Created on : 3/04/2020, 06:05:59 PM
+    Document   : VisualizarDetalles
+    Created on : 19/04/2020, 11:48:07 AM
     Author     : cardu
 --%>
 
@@ -14,19 +14,20 @@
     <link rel="stylesheet" href="css/AcStyle.css">
 </head>
 <header>
-    <img class="logo" src="./img/Logo.png" alt="">
+    <img class="logo" src="../cajasa/img/Logo.png" alt="">
 </header>
 <body>
     <section class="login-box">
-        <!-- <img class="avatar" src="./img/Conocimiento.png" alt=""> -->
-        <form class="tabla" action="Elimina.jsp" method="POST">
-            <h1>Resultado de la eliminacion con MVC</h1>
+        <img class="avatar" src="../cajasa/img/Conocimiento.png" alt="">
+        <form class="tabla" action="Visualizar.jsp" method="POST">
+            <h1>Detalles del documento seleccionado</h1>
             <%
             String k1= request.getParameter("k1");
+            String k2= request.getParameter("k2");
          
-            operaciones.Eliminacion el= new operaciones.Eliminacion();
+            operaciones.VerDetalles el= new operaciones.VerDetalles();
          
-            out.println(el.ejecutaEliminacion(k1));
+            out.println(el.ejecutaEliminacion(k1, k2));
             
             %>
         

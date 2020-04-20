@@ -34,7 +34,7 @@ public class Modificacion {
         Statement stat = null;
         ResultSet rs = null;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://node53445-arquitectura-equipo1.jl.serv.net.mx:3306/cajasadb","root","jx5jzKVCMi");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","");
 
         } catch (SQLException se) {
             consulta += "Mensaje: " + se.getMessage();
