@@ -94,7 +94,7 @@ consulta+="<th>" +rs.getString("tiempoentrega")+"</th>";
 consulta+="<th>" +rs.getString("editorial")+"</th>";
 consulta+="<th>" +rs.getString("paginas")+"</th>";
 consulta+="<th>" +rs.getString("tipo")+"</th>";
-consulta+="<th>" +rs.getString("imagen")+"</th>";
+consulta+="<th> <img src= './img/" +rs.getString("imagen")+"'> </th>";
 consulta+="</tr>";
 
 }

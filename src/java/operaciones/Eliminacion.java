@@ -89,7 +89,6 @@ while (rs.next())
 consulta+="<tr>";
 
 String k1=rs.getString("id");
-consulta+="<th>" +k1+"</th>";
 consulta+="<th>" +rs.getString("titulo")+"</th>";
 consulta+="<th>" +rs.getString("precio")+"</th>";
 consulta+="<th>" +rs.getString("autor")+"</th>";
@@ -99,7 +98,7 @@ consulta+="<th>" +rs.getString("tiempoentrega")+"</th>";
 consulta+="<th>" +rs.getString("editorial")+"</th>";
 consulta+="<th>" +rs.getString("paginas")+"</th>";
 consulta+="<th>" +rs.getString("tipo")+"</th>";
-consulta+="<th>" +rs.getString("imagen")+"</th>";
+consulta+="<th> <img src= './img/" +rs.getString("imagen")+"'> </th>";
 consulta+="<th><a href=Eliminacion.jsp?k1="+k1+">Eliminar</a> "+"</th>";
 consulta+="</tr>";
 
