@@ -10,9 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="css/AcStyle.css">
     </head>
     <body>
-        <h1>MODIFICAR DATOS DEL CONTENIDO</h1>
+        <section class="login-box">
+            <h1>MODIFICAR DATOS DEL CONTENIDO</h1>
         <%
             operaciones.Modificacion el= new operaciones.Modificacion();
             if(el.estaControlador())
@@ -26,5 +28,6 @@
             
             %>
         <br><a href="pagAdmin.jsp" target="_SELF"> Salir al menu</a>
+        </section>
     </body>
 </html>

@@ -10,9 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="css/AcStyle.css">
     </head>
     <body>
-        <h1>LISTO</h1>
+        <section class="login-box">
+            <h1>LISTO</h1>
         <%
          
          String id=request.getParameter("id");
@@ -33,5 +35,6 @@
             
             %>
                     <br><br><a href="pagAdmin.jsp" target="_SELF"> Salir al menu</a>
+        </section>
     </body>
 </html>
