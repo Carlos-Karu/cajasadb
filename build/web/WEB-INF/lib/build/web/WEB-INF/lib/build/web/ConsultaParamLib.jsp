@@ -1,13 +1,12 @@
 <%-- 
-    Document   : ConsultaParamTip
-    Created on : 3/04/2020, 09:33:38 PM
+    Document   : ConsultaParamLib
+    Created on : 3/04/2020, 07:55:46 PM
     Author     : cardu
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,24 +16,17 @@
 <header>
     <img class="logo" src="./img/Logo.png" alt="">
 </header>
-
 <body>
     <section class="login-box">
         <!-- <img class="avatar" src="./img/Conocimiento.png" alt=""> -->
-        <form class="tabla" action="EjecutaConsultaParamTip.jsp" method="POST">
+        <form class="tabla" action="EjecutaConsulataParamLib.jsp" method="POST">
             <BR>
-            <h1>Ingrese el tipo del documento a buscar:</h1>
-            <h4>NOTA: recuerda que los tipos son libro, revista y periodico</h4>
+            <h1>Ingrese el titulo del documento a buscar:</h1>
             <br>
+            <input  type="Text" size="100" name="tit">
             <br>
-            <select id="idOptionTypes" name="tip">
-                <option value="libro">Libro</option>
-                <option value="revista">Revista</option>
-                <option value="periodico">Periódico</option>
-            </select>
             <input type="Submit" value="Buscar">
         </form>
     </section>
 </body>
-
 </html>

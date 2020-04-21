@@ -26,8 +26,12 @@
             <h1>Ingrese el tipo del documento a buscar:</h1>
             <h4>NOTA: recuerda que los tipos son libro, revista y periodico</h4>
             <br>
-            <input type="Text" size="20" name="tip">
             <br>
+            <select id="idOptionTypes" name="tip">
+                <option value="libro">Libro</option>
+                <option value="revista">Revista</option>
+                <option value="periodico">Periódico</option>
+            </select>
             <input type="Submit" value="Buscar">
         </form>
     </section>
