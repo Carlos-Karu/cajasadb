@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/cardu/Documents/GitHub/cajasadb/web/ConsultaParamTip.jsp</file>
-            <file>file:/C:/Users/cardu/Documents/GitHub/cajasadb/src/java/operaciones/ConsultaParametrizadaLib.java</file>
-            <file>file:/C:/Users/cardu/Documents/GitHub/cajasadb/src/java/operaciones/ConsultaParametrizadaTip.java</file>
+            <file>file:/C:/Users/cardu/Documents/GitHub/cajasadb/web/ConsultaParamLib.jsp</file>
+            <file>file:/C:/Users/cardu/Documents/GitHub/cajasadb/web/Visualizar.jsp</file>
+            <file>file:/C:/Users/cardu/Documents/GitHub/cajasadb/web/modificacionMVC.jsp</file>
+            <file>file:/C:/Users/cardu/Documents/GitHub/cajasadb/web/modificaMVC.jsp</file>
+            <file>file:/C:/Users/cardu/Documents/GitHub/cajasadb/web/modificadaMVC.jsp</file>
         </group>
     </open-files>
 </project-private>
