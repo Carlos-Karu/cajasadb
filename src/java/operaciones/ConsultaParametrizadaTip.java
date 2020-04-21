@@ -65,7 +65,10 @@ try
   
 Statement stat=conn.createStatement();
 ResultSet rs=stat.executeQuery("use cajasadb;");
-rs=stat.executeQuery("select * from libreria where tipo LIKE '%"+param+"%'");
+    if (param.equals("")) {
+        consulta += "<h1>Para realizar una busqueda necesitas primero colocar datos, vuelve a intentarlo</h1>";
+    } else {
+    rs=stat.executeQuery("select * from libreria where tipo LIKE '%"+param+"%'");
 
 
 consulta+="<table border=1>";
@@ -99,6 +102,8 @@ consulta+="</tr>";
 
 }
 consulta+="</table>";
+}
+
 
 } catch (SQLException se)
 {

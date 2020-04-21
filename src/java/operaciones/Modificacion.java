@@ -172,11 +172,11 @@ public class Modificacion {
         try {
             // create the mysql database connection
             String myDriver = "com.mysql.jdbc.Driver";
-            String myUrl = "jdbc:mysql://localhost:3306/bd";
+            String myUrl = "jdbc:mysql://localhost:3306/cajasadb";
             Class.forName(myDriver);
             Connection conn = DriverManager.getConnection(myUrl, "root", "");
 
-            String query = "UPDATE libreria SET `titulo` = '" + titu + "', `precio` = '" + prec + "', `autor` = '" + auto + "', `genero` = '" + gene + "', `formato` = '" + form + "', `tiempoentrega` = '" + tae + "', `editorial` = '" + edit + "', `paginas` = '" + pags + "', tipo='" + tipo + "', imagen='" + imag + "' WHERE `libreria`.`id` = " + id + ";";
+            String query = "UPDATE libreria SET titulo = '" + titu + "', precio = '" + prec + "', autor = '" + auto + "', genero = '" + gene + "', formato = '" + form + "', tiempoentrega = '" + tae + "', editorial = '" + edit + "', paginas = '" + pags + "', tipo='" + tipo + "', imagen='" + imag + "' WHERE libreria.id = " + id + ";";
             Statement preparedStmt = conn.prepareStatement(query);
             //preparedStmt.setInt(1, 3);
 
