@@ -19,12 +19,7 @@
 <body>
     <section class="login-box">
         <!-- <img class="avatar" src="./img/Conocimiento.png" alt=""> -->
-        <form class="tabla" action="EjecutaConsulataParamLib.jsp" method="POST"
-        style="
-            width: 90%;
-            margin: auto;
-            text-align: center;
-        ">
+        <form class="tabla" action="EjecutaConsulataParamLib.jsp" method="POST">
             <h1>Resultado de la consulta por titulo del documento</h1>
         
             <%

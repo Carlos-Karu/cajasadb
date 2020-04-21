@@ -19,7 +19,7 @@
 </header>
 
 <body>
-    <section>
+    <section class="login-box">
         <!-- <img class="avatar" src="./img/Conocimiento.png" alt=""> -->
         <form class="tabla" action="EjecutaConsultaParamTip.jsp" method="POST"
         style="

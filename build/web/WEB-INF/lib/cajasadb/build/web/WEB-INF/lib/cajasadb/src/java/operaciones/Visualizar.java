@@ -65,7 +65,14 @@ try
   
 Statement stat=conn.createStatement();
 ResultSet rs=stat.executeQuery("use cajasadb;");
+<<<<<<< HEAD:build/web/WEB-INF/lib/cajasadb/build/web/WEB-INF/lib/cajasadb/src/java/operaciones/Visualizar.java
 rs=stat.executeQuery("select * from libreria");
+=======
+    if (param.equals("")) {
+        consulta += "<h1>Para realizar una busqueda necesitas primero colocar datos, vuelve a intentarlo</h1>";
+    } else {
+    rs=stat.executeQuery("select * from libreria where tipo LIKE '%"+param+"%'");
+>>>>>>> fe4e027ff190c8ac4fb608a12655ca4d80b58f4a:build/web/WEB-INF/lib/src/java/operaciones/ConsultaParametrizadaTip.java
 
 
 consulta+="<table border=1>";
@@ -99,6 +106,8 @@ consulta+="</tr>";
 
 }
 consulta+="</table>";
+}
+
 
 } catch (SQLException se)
 {

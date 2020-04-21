@@ -21,14 +21,31 @@
 <body>
     <section class="login-box">
         <!-- <img class="avatar" src="./img/Conocimiento.png" alt=""> -->
-        <form class="tabla" action="EjecutaConsultaParamTip.jsp" method="POST">
+        <form class="tabla" action="EjecutaConsultaParamTip.jsp" method="POST"
+        style="
+            width: 90%;
+            margin: auto;
+            text-align: center;
+        ">
             <BR>
-            <h1>Ingrese el tipo del documento a buscar:</h1>
-            <h4>NOTA: recuerda que los tipos son libro, revista y periodico</h4>
+            <h1 style="color: white;">Ingrese el tipo del documento a buscar:</h1>
             <br>
-            <input type="Text" size="20" name="tip">
+            <select id="idOptionTypes" name="tip" style="font-weight: bold; width: 50%; font-size: 3vw;">
+                <option value="libro">Libro</option>
+                <option value="revista">Revista</option>
+                <option value="periodico">Periódico</option>
+            </select>
             <br>
-            <input type="Submit" value="Buscar">
+            <br>
+            <input type="Submit" value="Buscar"
+            style="
+                border: none;
+                background-color: aquamarine;
+                color: #424242;
+                width: 10%;
+                font-weight: bold;
+                font-size: 1vw;
+            ">
         </form>
     </section>
 </body>
