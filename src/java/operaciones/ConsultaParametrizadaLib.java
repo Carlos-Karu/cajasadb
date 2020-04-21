@@ -11,109 +11,89 @@ import java.sql.Statement;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author cardu
  */
 public class ConsultaParametrizadaLib {
-    
-       
 
-public boolean estaControlador()
-{
- boolean band=false;
- try
-{
-Class.forName("com.mysql.jdbc.Driver").newInstance();
-band=true;
+    public boolean estaControlador() {
+        boolean band = false;
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            band = true;
 
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            band = false;
 
-} catch(ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-    band=false;
- 
-    System.out.println("Fallo driver: "+ex);
-}
- 
-    
- finally
- {
-   return band;      
-}
-}
+            System.out.println("Fallo driver: " + ex);
+        } finally {
+            return band;
+        }
+    }
 
-public String ejecutaConsulta(String param)
-{
- String consulta=""; 
-      Connection conn=null;
- 
- try
-{
+    public String ejecutaConsulta(String param) {
+        String consulta = "";
+        Connection conn = null;
 
-conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","");
+        try {
 
-} catch (SQLException se)
-{
-  
-consulta+="Mensaje: "+se.getMessage();
-consulta+="Estado: "+se.getSQLState();
-consulta+="Error: "+se.getErrorCode();
-}
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "");
 
-try
-{
-  
-Statement stat=conn.createStatement();
-ResultSet rs=stat.executeQuery("use cajasadb;");
-rs=stat.executeQuery("select * from libreria where titulo LIKE '%"+param+"%'");
+        } catch (SQLException se) {
 
+            consulta += "Mensaje: " + se.getMessage();
+            consulta += "Estado: " + se.getSQLState();
+            consulta += "Error: " + se.getErrorCode();
+        }
 
-consulta+="<table border=1>";
-consulta+="<th><h2>Titulo </h2></th>";
-consulta+="<th><h2>Precio </h2></th>";
-consulta+="<th><h2>Autor </h2></th>";
-consulta+="<th><h2>Genero </h2></th>";
-consulta+="<th><h2>Formato </h2> </th>";
-consulta+="<th><h2>Tiempo de entrega </h2> </th>";
-consulta+="<th><h2>Editorial </h2> </th>";
-consulta+="<th><h2>Número de páginas </h2> </th>";
-consulta+="<th><h2>Tipo </h2> </th>";
-consulta+="<th><h2>Imagen </h2> </th>";
+        try {
 
-while (rs.next())
-{
-    
-consulta+="<tr>";
-    
-consulta+="<th>" +rs.getString("titulo")+"</th>" ;
-consulta+="<th>" +rs.getString("precio")+"</th>";
-consulta+="<th>" +rs.getString("autor")+"</th>";
-consulta+="<th>" +rs.getString("genero")+"</th>";
-consulta+="<th>" +rs.getString("formato")+"</th>";
-consulta+="<th>" +rs.getString("tiempoentrega")+"</th>";
-consulta+="<th>" +rs.getString("editorial")+"</th>";
-consulta+="<th>" +rs.getString("paginas")+"</th>";
-consulta+="<th>" +rs.getString("tipo")+"</th>";
-consulta+="<th> <img src= './img/" +rs.getString("imagen")+"'> </th>";
-consulta+="</tr>";
+            Statement stat = conn.createStatement();
+            ResultSet rs = stat.executeQuery("use cajasadb;");
+            if (param.isEmpty()) {
+                consulta += "<h1>Para realizar una busqueda necesitas primero colocar datos, vuelve a intentarlo</h1>";
+            } else {
+                rs = stat.executeQuery("select * from libreria where titulo LIKE '%" + param + "%'");
+                consulta += "<table border=1>";
+                consulta += "<th><h2>Titulo </h2></th>";
+                consulta += "<th><h2>Precio </h2></th>";
+                consulta += "<th><h2>Autor </h2></th>";
+                consulta += "<th><h2>Genero </h2></th>";
+                consulta += "<th><h2>Formato </h2> </th>";
+                consulta += "<th><h2>Tiempo de entrega </h2> </th>";
+                consulta += "<th><h2>Editorial </h2> </th>";
+                consulta += "<th><h2>Número de páginas </h2> </th>";
+                consulta += "<th><h2>Tipo </h2> </th>";
+                consulta += "<th><h2>Imagen </h2> </th>";
 
-}
-consulta+="</table>";
+                while (rs.next()) {
 
-} catch (SQLException se)
-{
-    consulta+="LMensaje: "+se.getMessage();
-consulta+="LEstado: "+se.getSQLState();
-consulta+="LError: "+se.getErrorCode();
-}
- 
-    
-    finally
- {
-     return consulta;    
-         }
-}
+                    consulta += "<tr>";
 
-    
-    
+                    consulta += "<th>" + rs.getString("titulo") + "</th>";
+                    consulta += "<th>" + rs.getString("precio") + "</th>";
+                    consulta += "<th>" + rs.getString("autor") + "</th>";
+                    consulta += "<th>" + rs.getString("genero") + "</th>";
+                    consulta += "<th>" + rs.getString("formato") + "</th>";
+                    consulta += "<th>" + rs.getString("tiempoentrega") + "</th>";
+                    consulta += "<th>" + rs.getString("editorial") + "</th>";
+                    consulta += "<th>" + rs.getString("paginas") + "</th>";
+                    consulta += "<th>" + rs.getString("tipo") + "</th>";
+                    consulta += "<th> <img src= './img/" + rs.getString("imagen") + "'> </th>";
+                    consulta += "</tr>";
+
+                }
+                consulta += "</table>";
+            }
+
+        } catch (SQLException se) {
+            consulta += "LMensaje: " + se.getMessage();
+            consulta += "LEstado: " + se.getSQLState();
+            consulta += "LError: " + se.getErrorCode();
+        } finally {
+            return consulta;
+        }
+    }
+
 }
