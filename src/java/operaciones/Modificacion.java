@@ -6,111 +6,87 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 /**
  *
- * @author cardu
+ * @author giner
  */
 public class Modificacion {
 
-    public boolean estacontrolador() {
-        boolean ban = false;
+    public boolean estaControlador() {
+        boolean band = false;
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            ban = true;
+            band = true;
 
-        } catch (Exception ex) {
-            ban = false;
-            System.out.println("Entro a 2");
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            band = false;
+
             System.out.println("Fallo driver: " + ex);
         } finally {
-            return ban;
+            return band;
         }
     }
 
-    public String ejecutaConsulta(String param02) throws SQLException {
-
+    public String ejecutaConsulta() {
         String consulta = "";
         Connection conn = null;
-        Statement stat = null;
-        ResultSet rs = null;
+
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","");
+
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "");
 
         } catch (SQLException se) {
+
             consulta += "Mensaje: " + se.getMessage();
             consulta += "Estado: " + se.getSQLState();
             consulta += "Error: " + se.getErrorCode();
         }
 
         try {
-            stat = conn.createStatement();
-            rs = stat.executeQuery("use cajasadb;");
-            if (null != param02) {
-                    rs = stat.executeQuery("select * from libreria");
-                }
-            //rs=stat.executeQuery("select * from libreria");
-            consulta += "<table border=1";
-            consulta += "<th>Titulo</th>";
-            consulta += "<th>Precio</th>";
-            consulta += "<th>Autor</th>";
-            consulta += "<th>Genero</th>";
-            consulta += "<th>Formato</th>";
-            consulta += "<th>Tiempo</th>";
-            consulta += "<th>Editorial</th>";
-            consulta += "<th>Numero de Paginas</th>";
-            consulta += "<th>Tipo</th>";
-            consulta += "<th>Imagen</th>";
+
+            Statement stat = conn.createStatement();
+            ResultSet rs = stat.executeQuery("use cajasadb;");
+            rs = stat.executeQuery("select * from libreria");
+
+            consulta += "<table border=1>";
+            consulta += "<th>Titulo </th>";
+            consulta += "<th>Precio </th>";
+            consulta += "<th>Autor </th>";
+            consulta += "<th>Genero </th>";
+            consulta += "<th>Formato </th>";
+            consulta += "<th>Tiempo de entrega </th>";
+            consulta += "<th>Editorial </th>";
+            consulta += "<th>Paginas </th>";
+            consulta += "<th>Tipo </th>";
+            consulta += "<th>Imagen </th>";
 
             while (rs.next()) {
-                consulta += "<tr>";
-                consulta += "<td> " + rs.getString("titulo");
-                String key2 = rs.getString("titulo");
-                consulta += "<td> " + rs.getString("precio");
-                String key1 = rs.getString("precio");
-                consulta += "<td> " + rs.getString("autor");
-                String key3 = rs.getString("autor");
-                consulta += "<td> " + rs.getString("genero");
-                String key4 = rs.getString("genero");
-                consulta += "<td> " + rs.getString("formato");
-                String key5 = rs.getString("formato");
-                consulta += "<td> " + rs.getString("tiempoentrega");
-                String key6 = rs.getString("tiempoentrega");
-                consulta += "<td> " + rs.getString("editorial");
-                String key7 = rs.getString("editorial");
-                consulta += "<td> " + rs.getString("paginas");
-                String key8 = rs.getString("paginas");
-                consulta += "<td> " + rs.getString("tipo");
-                String key9 = rs.getString("tipo");
-                consulta += "<td> " + rs.getString("imagen");
-                String key10 = rs.getString("imagen");
-                String cadena = new String(key1);
-                String cadena1 = new String(key2);
-                String cadena2 = new String(key3);
-                String cadena3 = new String(key4);
-                String cadena4 = new String(key5);
-                String cadena5 = new String(key6);
-                String cadena6 = new String(key7);
-                String cadena7 = new String(key8);
-                String cadena8 = new String(key9);
-                String cadena9 = new String(key10);
 
-                consulta += "<td><form action='modificacion.jsp' method='POST'>"
-                        + "<input type='Hidden' value='" + param02 + "' name='base'>"
-                        + "<input type='Hidden' value='" + cadena + "' name='llave'>"
-                        + "<input type='Hidden' value='" + cadena1 + "' name='llave1'>"
-                        + "<input type='Hidden' value='" + cadena2 + "' name='llave2'>"
-                        + "<input type='Hidden' value='" + cadena3 + "' name='llave3'>"
-                        + "<input type='Hidden' value='" + cadena4 + "' name='llave4'>"
-                        + "<input type='Hidden' value='" + cadena5 + "' name='llave5'>"
-                        + "<input type='Hidden' value='" + cadena6 + "' name='llave6'>"
-                        + "<input type='Hidden' value='" + cadena7 + "' name='llave7'>"
-                        + "<input type='Hidden' value='" + cadena8 + "' name='llave8'>"
-                        + "<input type='Hidden' value='" + cadena9 + "' name='llave9'>"
-                        + "<input type='Submit' value='Modificar'>"
-                        + "</form>" + "</td>";
-                consulta += "</tr>";
+                consulta += "<tr>";
+
+                String k1 = rs.getString("id");
+
+                String k2 = rs.getString("id");
+                consulta += "<th>" + rs.getString("titulo") + "</th>";
+                consulta += "<th>" + rs.getString("precio") + "</th>";
+                consulta += "<th>" + rs.getString("autor") + "</th>";
+                consulta += "<th>" + rs.getString("genero") + "</th>";
+                consulta += "<th>" + rs.getString("formato") + "</th>";
+                consulta += "<th>" + rs.getString("tiempoentrega") + "</th>";
+                consulta += "<th>" + rs.getString("editorial") + "</th>";
+                consulta += "<th>" + rs.getString("paginas") + "</th>";
+                consulta += "<th>" + rs.getString("tipo") + "</th>";
+                consulta += "<th> <img src= './img/" + rs.getString("imagen") + "'> </th>";
+                consulta += "<th><a href=modificadaMVC.jsp?k1=" + k1 + "&k2=" + k2 + ">Modificar</a> " + "</th>";
+
             }
             consulta += "</table>";
+
         } catch (SQLException se) {
             consulta += "LMensaje: " + se.getMessage();
             consulta += "LEstado: " + se.getSQLState();
@@ -120,47 +96,106 @@ public class Modificacion {
         }
     }
 
-    public String ejecutaModificacion(String param02, String key, String titulo, String precio, String autor, String genero, String formato, String tiempo, String editorial, String paginas, String tipo, String imagen) {
+    public String JalaDatos(String id) {
         String consulta = "";
         Connection conn = null;
-        Statement stat = null;
-        ResultSet rs = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-        } catch (Exception ex) {
-            System.out.println("Fallo driver: " + ex);
-        }
 
         try {
+
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "");
 
         } catch (SQLException se) {
+
             consulta += "Mensaje: " + se.getMessage();
             consulta += "Estado: " + se.getSQLState();
             consulta += "Error: " + se.getErrorCode();
         }
+
         try {
-            stat = conn.createStatement();
-            rs = stat.executeQuery("use cajasadb");
-            if (null != param02) {
-                        //rs = stat.executeQuery("select * from periodicos where Titulo='"+key+"'");
-                        stat.executeUpdate("Update libreria set titulo='" + titulo + "', precio='" + precio + "', autor='" + autor + "', genero='" + genero + "', formato='"
-                                + formato + "', tiempoentrega='" + tiempo + "', paginas='" + paginas + "', tipo='" + tipo + "', imagen='" + imagen +"' where titulo='" + key + "'");
-                }
-//rs=stat.executeQuery("select * from equipos where Nombre='"+key+"'");
-//stat.executeUpdate("Update equipos set Titulo='"+titulo+"', Precio='"+precio+"', Autor='"+autor+"', Genero='"+genero+"', Formato='"+
-            //                  formato+"', Tiempo='"+tiempo+"' where Nombre='"+key+"'");
 
-            consulta += key;
-            consulta += "Los datos han sido modificados";
-            consulta += "<br>";
-            consulta += "<a href=pagAdmin>Regresar al inicio </a>";
-        } catch (Exception se) {
+            Statement stat = conn.createStatement();
+            ResultSet rs = stat.executeQuery("use cajasadb;");
+            rs = stat.executeQuery("select * from libreria where id='" + id + "'");
 
+            while (rs.next()) {
+
+                consulta = "<form action=\"modificacionMVC.jsp\" target=\"_SELF\" method=\"POST\">\n"
+                        + "            <BR>\n"
+                        + "            <B> Titulo:<input type=\"hidden\" name=\"id\" size=\"25\" value=\"" + rs.getString("id") + "\"> \n"
+                        + "                <BR><input type=\"Text\" name=\"tit\" size=\"25\" value=\"" + rs.getString("titulo") + "\" >\n"
+                        + "            <BR>\n"
+                        + "            <B> Precio: \n"
+                        + "                <BR><input type=\"text\" name=\"pre\" size=\"6\" value=\"" + rs.getString("precio") + "\">\n"
+                        + "            <BR>\n"
+                        + "            <B> Autor: \n"
+                        + "                <BR><input type=\"Text\" name=\"aut\" size=\"25\" value=\"" + rs.getString("autor") + "\">\n"
+                        + "            <BR>\n"
+                        + "            <B> Genero: \n"
+                        + "                <BR><input type=\"Text\" name=\"gen\" size=\"20\" value=\"" + rs.getString("genero") + "\">\n"
+                        + "            <BR>\n"
+                        + "            <B> Formato: \n"
+                        + "                <BR><input type=\"Text\" name=\"for\" size=\"25\" value=\"" + rs.getString("formato") + "\">\n"
+                        + "            <BR>\n"
+                        + "            <B> Tiempo de entrega: \n"
+                        + "                <BR><input type=\"Text\" name=\"tae\" size=\"25\" value=\"" + rs.getString("tiempoentrega") + "\">\n"
+                        + "            <BR>\n"
+                        + "            <B> Editorial: \n"
+                        + "                <BR><input type=\"Text\" name=\"edi\" size=\"30\" value=\"" + rs.getString("editorial") + "\">\n"
+                        + "             <br>  \n"
+                        + "				     <B> Paginas: \n"
+                        + "                <BR><input type=\"text\" name=\"pag\" size=\"5\" value=\"" + rs.getString("paginas") + "\">\n"
+                        + "             <br> \n"
+                        + "					   <B> Tipo: \n"
+                        + "                <BR><input type=\"Text\" name=\"tip\" size=\"25\" value=\"" + rs.getString("tipo") + "\">\n"
+                        + "            <BR>\n"
+                        + "				     <B> Imagen: \n"
+                        + "                <BR><input type=\"text\" name=\"ima\" size=\"25\" value=\"" + rs.getString("imagen") + "\">\n"
+                        + "             <br> \n"
+                        + "             <BR><input type=\"Submit\" value=\"Actualizar\">\n"
+                        + "            \n"
+                        + "        </form>";
+
+            }
+            consulta += "</table>";
+
+        } catch (SQLException se) {
+            consulta += "LMensaje: " + se.getMessage();
+            consulta += "LEstado: " + se.getSQLState();
+            consulta += "LError: " + se.getErrorCode();
         } finally {
             return consulta;
         }
+    }
 
+    public String ejecutaEliminacion(String id, String titu, String prec, String auto, String gene, String form, String tae, String edit, String pags, String tipo, String imag) {
+        String res = "";
+        try {
+            // create the mysql database connection
+            String myDriver = "com.mysql.jdbc.Driver";
+            String myUrl = "jdbc:mysql://localhost:3306/bd";
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(myUrl, "root", "");
+
+            String query = "UPDATE libreria SET `titulo` = '" + titu + "', `precio` = '" + prec + "', `autor` = '" + auto + "', `genero` = '" + gene + "', `formato` = '" + form + "', `tiempoentrega` = '" + tae + "', `editorial` = '" + edit + "', `paginas` = '" + pags + "', tipo='" + tipo + "', imagen='" + imag + "' WHERE `libreria`.`id` = " + id + ";";
+            Statement preparedStmt = conn.prepareStatement(query);
+            //preparedStmt.setInt(1, 3);
+
+            // execute the preparedstatement
+            boolean band = preparedStmt.execute(query);
+
+            conn.close();
+            if (band == false) {
+                res += "Se actualizo con exito el contenido";
+            } else {
+                res += "No se pudo eliminar";
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        } finally {
+            return res;
+        }
     }
 
 }

@@ -39,7 +39,7 @@
             <a href="ConsultaParamLib.jsp"><h2>Buscar un documento por su titulo</h2></a>
             <a href="Inserta.jsp"><h2>Agregar un nuevo documento</h2></a>
             <a href="Elimina.jsp"><h2>Eliminar un documento</h2></a>
-            <a href="modificacion.jsp"><h2>Actualizar un documento</h2></a>
+            <a href="modificaMVC.jsp"><h2>Actualizar un documento</h2></a>
 
         </form>
     </section>

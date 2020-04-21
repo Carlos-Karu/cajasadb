@@ -9,7 +9,7 @@ header{
 body{
     margin: 0;
     padding: 0;
-    background: url(../img/Libro.jpg) no-repeat center top;
+    background-color: black;
     background-size: 130%;
     height: 100%;
 }
